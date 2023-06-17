@@ -1,0 +1,1 @@
+enum RecordTypeEnum { expenseRecord, incomeRecord }

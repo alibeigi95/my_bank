@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Account {
   final String accountName;
-  final int balanceAccount;
+  double balanceAccount;
   final Color cardColor;
 
   Account(

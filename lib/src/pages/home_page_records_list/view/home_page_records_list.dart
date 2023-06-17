@@ -4,7 +4,7 @@ import 'package:my_bank/src/pages/home_page_records_list/controller/home_page_re
 import 'package:my_bank/src/pages/home_page_records_list/view/widget/card_account.dart';
 import 'package:my_bank/src/pages/home_page_records_list/view/widget/labeled_divider.dart';
 import 'package:get/get.dart';
-import '../../infrastructure/commons/data_bank.dart';
+import '../../../infrastructure/commons/data_bank.dart';
 
 class HomePageRecordsList extends GetView<HomePageRecordListController> {
   const HomePageRecordsList({Key? key}) : super(key: key);

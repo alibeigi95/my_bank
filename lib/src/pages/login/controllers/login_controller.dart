@@ -6,9 +6,7 @@ import '../../../infrastructure/routes/route_name.dart';
 class LoginController extends GetxController{
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   late final TextEditingController userNameTextController, passWordController;
-  var obscureText = true.obs;
-  String passCheck1 = '';
-  String passCheck2 = '';
+  RxBool obscureText = true.obs;
 
   @override
   void onInit() {
