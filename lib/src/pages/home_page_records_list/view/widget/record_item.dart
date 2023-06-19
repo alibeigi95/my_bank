@@ -103,26 +103,5 @@ class RecordItem extends GetView<HomePageRecordListController> {
             fontStyle: FontStyle.normal),
       );
 
-//
-// Widget _editRecordButton() => Material(
-//   color: MainTheme.primaryColor.withOpacity(0.1),
-//   borderRadius: BorderRadius.circular(6),
-//   child: InkWell(
-//     borderRadius: BorderRadius.circular(6),
-//     onTap: (){
-//       // Get.offAndToNamed(
-//       //     RoutesName.piggyBank + RoutesName.record,
-//       //     arguments: {'index':recordIndex}
-//       // );
-//     },
-//     child: const Padding(
-//       padding: EdgeInsets.symmetric(horizontal: 18,vertical: 2),
-//       child: Icon(
-//         Icons.edit_note,
-//         color: MainTheme.primaryColor,
-//         size: 24,
-//       ),
-//     ),
-//   ),
-// );
+
 }
