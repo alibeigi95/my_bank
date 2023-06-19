@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_bank/src/pages/shared/model/pay_amount.dart';
 
-import '../../../../infrastructure/commons/data_bank.dart';
-import '../../../../infrastructure/routes/route_name.dart';
+
 import '../../../../infrastructure/theme/my_theme.dart';
 import '../../../shared/model/expence_record.dart';
+import '../../controller/home_page_record_list_controller.dart';
 
-class RecordItem extends StatelessWidget {
-  const RecordItem({super.key, required this.paymentRecord});
+class RecordItem extends GetView<HomePageRecordListController> {
+  const RecordItem({super.key, required this.paymentRecord,required this.index,});
 
   final PaymentRecord paymentRecord;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class RecordItem extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () {
-          Get.toNamed(RoutesName.homePageRecordsList+RoutesName.editRecord);
+          controller.goToEditPage(index);
         },
         child: DecoratedBox(
           decoration: BoxDecoration(

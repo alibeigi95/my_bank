@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_bank/src/infrastructure/routes/route_name.dart';
 import 'package:my_bank/src/pages/home_page_records_list/controller/home_page_record_list_controller.dart';
 import 'package:my_bank/src/pages/home_page_records_list/view/widget/card_account.dart';
 import 'package:my_bank/src/pages/home_page_records_list/view/widget/labeled_divider.dart';
@@ -27,8 +26,10 @@ class HomePageRecordsList extends GetView<HomePageRecordListController> {
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     itemCount: controller.records.length,
-                    itemBuilder: (context, index) =>
-                        RecordItem(paymentRecord:  controller.records[index] )),
+                    itemBuilder: (context, index) => RecordItem(
+                          paymentRecord: controller.records[index],
+                          index: index,
+                        )),
               ),
             ),
           ],
@@ -44,7 +45,8 @@ class HomePageRecordsList extends GetView<HomePageRecordListController> {
 
   Widget _listViewAccount() => Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Obx(() =>  ListView.builder(
+        child: Obx(
+          () => ListView.builder(
             shrinkWrap: true,
             itemCount: controller.accounts.length,
             itemBuilder: (context, index) =>

@@ -1,9 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:my_bank/src/pages/shared/model/pay_amount.dart';
-
 import '../../../infrastructure/commons/data_bank.dart';
-import '../../../infrastructure/routes/route_name.dart';
 import '../../shared/model/account.dart';
 import '../../shared/model/enum_record_type.dart';
 import '../../shared/model/expence_record.dart';

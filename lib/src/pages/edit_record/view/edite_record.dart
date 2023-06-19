@@ -103,7 +103,7 @@ class EditRecord extends GetView<EditRecordController> {
                 ),
               ),
               validator: (value) {
-                if (controller.recordAmountController!.text.isNumericOnly) {
+                if (controller.recordAmountController.text.isNumericOnly) {
                   return null;
                 } else {
                   return 'Only numeric characters';
