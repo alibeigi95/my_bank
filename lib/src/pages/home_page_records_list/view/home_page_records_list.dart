@@ -20,18 +20,7 @@ class HomePageRecordsList extends GetView<HomePageRecordListController> {
             const LabeledDivider(
               label: 'Record',
             ),
-            Expanded(
-              child: Obx(
-                () => ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemCount: controller.records.length,
-                    itemBuilder: (context, index) => RecordItem(
-                          paymentRecord: controller.records[index],
-                          index: index,
-                        )),
-              ),
-            ),
+            _listViewRecords(),
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -42,6 +31,21 @@ class HomePageRecordsList extends GetView<HomePageRecordListController> {
           child: const Icon(Icons.add, size: 35),
         ),
       );
+
+  Expanded _listViewRecords() {
+    return Expanded(
+            child: Obx(
+              () => ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: controller.records.length,
+                  itemBuilder: (context, index) => RecordItem(
+                        paymentRecord: controller.records[index],
+                        index: index,
+                      )),
+            ),
+          );
+  }
 
   Widget _listViewAccount() => Padding(
         padding: const EdgeInsets.all(8.0),
