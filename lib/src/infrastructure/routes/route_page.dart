@@ -6,6 +6,8 @@ import 'package:my_bank/src/pages/home_page_records_list/view/home_page_records_
 import 'package:my_bank/src/pages/login/bindings/login_binding.dart';
 import 'package:my_bank/src/pages/login/view/login.dart';
 
+import '../../pages/edit_record/commons/edite_record_binding.dart';
+import '../../pages/edit_record/view/edite_record.dart';
 import '../../pages/home_page_records_list/commons/home_page_record_list_binding.dart';
 
 class RoutePages {
@@ -26,8 +28,13 @@ class RoutePages {
           name: RoutesName.addRecord,
           page: () => const AddRecord(),
           binding: AddRecordBinding(),
-
         ),
+        GetPage(
+          name: RoutesName.editRecord,
+          page: () => const EditRecord(),
+          binding: EditRecordBinding(),
+        ),
+
       ]
     ),
 

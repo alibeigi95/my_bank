@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MainTheme {
-  static const Color primaryColor = Color(0xff5B3596);
-  static const Color accountCard = Color(0xff41247C);
+  static const Color primaryColor = Color(0xff3b9f2c);
+  static const Color accountCard = Color(0xff226209);
   static const Color accountCardTwo = Color(0xff3B611C);
   static const Color secondaryColor = Color(0xff49454F);
 

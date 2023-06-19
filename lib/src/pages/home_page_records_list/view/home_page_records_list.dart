@@ -4,7 +4,7 @@ import 'package:my_bank/src/pages/home_page_records_list/controller/home_page_re
 import 'package:my_bank/src/pages/home_page_records_list/view/widget/card_account.dart';
 import 'package:my_bank/src/pages/home_page_records_list/view/widget/labeled_divider.dart';
 import 'package:get/get.dart';
-import '../../../infrastructure/commons/data_bank.dart';
+import 'package:my_bank/src/pages/home_page_records_list/view/widget/record_item.dart';
 
 class HomePageRecordsList extends GetView<HomePageRecordListController> {
   const HomePageRecordsList({Key? key}) : super(key: key);
@@ -17,15 +17,25 @@ class HomePageRecordsList extends GetView<HomePageRecordListController> {
             backgroundColor: Colors.green[300]),
         body: Column(
           children: [
-             _listViewAccount(),
+            _listViewAccount(),
             const LabeledDivider(
               label: 'Record',
+            ),
+            Expanded(
+              child: Obx(
+                () => ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: controller.records.length,
+                    itemBuilder: (context, index) =>
+                        RecordItem(paymentRecord:  controller.records[index] )),
+              ),
             ),
           ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Get.toNamed(RoutesName.homePageRecordsList + RoutesName.addRecord);
+            controller.goToAddPage();
           },
           backgroundColor: Colors.green[300],
           child: const Icon(Icons.add, size: 35),
@@ -33,12 +43,13 @@ class HomePageRecordsList extends GetView<HomePageRecordListController> {
       );
 
   Widget _listViewAccount() => Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: controller.bank.accounts.length,
-        itemBuilder: (context, index) =>
-            CardAccount(account: controller.bank.accounts[index]),
-      ),
-    );
+        padding: const EdgeInsets.all(8.0),
+        child: Obx(() =>  ListView.builder(
+            shrinkWrap: true,
+            itemCount: controller.accounts.length,
+            itemBuilder: (context, index) =>
+                CardAccount(account: controller.accounts[index]),
+          ),
+        ),
+      );
 }

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:my_bank/src/pages/shared/model/pay_amount.dart';
 
 import '../../../infrastructure/commons/data_bank.dart';
-import '../../../infrastructure/routes/route_name.dart';
+
 import '../../shared/model/account.dart';
 import '../../shared/model/enum_record_type.dart';
 import '../../shared/model/expence_record.dart';
 import '../../shared/model/income_record.dart';
 
-class AddRecordController extends GetxController {
+class EditRecordController extends GetxController {
   int? recordIndex;
   Rx<RecordTypeEnum> recordTypeGroup = RecordTypeEnum.incomeRecord.obs;
   GlobalKey<FormState>? formKey;
@@ -28,13 +28,14 @@ class AddRecordController extends GetxController {
     if (formKey?.currentState?.validate() ?? false) {
       if (recordIndex == null) {
         addRecord();
+
       }
     }
   }
 
   void  addRecord() {
     final Account account =
-        DataBank.bank.accounts[accountChoiceGroupValue.value];
+    DataBank.bank.accounts[accountChoiceGroupValue.value];
     final double amount = double.parse(recordAmountController?.text ?? '0');
     PaymentRecord? paymentRecord;
     switch (recordTypeGroup.value) {
